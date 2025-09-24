@@ -4,18 +4,18 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center bg-black py-12 text-emerald-400"
+      className="min-h-screen flex flex-col items-center justify-center bg-black py-12 pt-24 px-4 text-emerald-400"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Contact me</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">Contact me</h2>
       <div className="container mx-auto max-w-5xl w-full px-4">
         <div className="bg-black rounded-2xl border border-emerald-800/40 shadow-2xl flex flex-col md:flex-row overflow-hidden">
           {/* Left Section */}
           <div className="flex-1 p-8 flex flex-col items-center justify-center bg-black">
             <div className="w-full flex flex-col items-center">
               {/* Contact Details */}
-              <div className="space-y-4 mb-8 flex flex-col items-center w-full">
+              <div className="space-y-4 mb-8 flex flex-col items-center w-full max-w-md">
                 <div className="email_phone">
-                    <div className="flex items-center gap-3 w-full max-w-xs">
+                    <div className="flex items-center gap-3 w-full">
                   <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-emerald-900/20">
                     <div className="div">
                       
@@ -30,7 +30,7 @@ const Contact = () => {
                     aswinpr46@gmail.com
                   </span>
                 </div>
-                <div className="flex items-center gap-3 w-full max-w-xs mt-8">
+                 <div className="flex items-center gap-3 w-full mt-8">
                   <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-emerald-900/20">
                     {/* Phone Icon */}
                     <svg className="h-7 w-7 text-emerald-400" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -142,7 +142,7 @@ const Contact = () => {
               ></textarea>
               <button
                 type="submit"
-                className="font-bold py-3 px-6 rounded-lg border border-emerald-700 hover:bg-white hover:text-white focus:bg-white focus:text-black active:bg-white active:text-black transition-colors shadow"
+                className="font-bold py-3 px-6 rounded-lg border border-emerald-700 hover:bg-emerald-500 hover:text-black transition-colors shadow"
               >
                 Submit
               </button>

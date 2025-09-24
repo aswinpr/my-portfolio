@@ -1,15 +1,15 @@
 import React from 'react';
 
 const imageClass =
-  "rounded-lg mb-4 w-full h-48 object-cover object-center"; // fixed width and height
+  "rounded-lg mb-4 w-full h-40 sm:h-48 object-cover object-center"; // responsive heights
 
 const Projects = () => {
   return (
-    <section id="projects" className="h-screen flex flex-col items-center justify-center bg-gray-100">
-      <h1 className="text-3xl text-emerald-500 text-center mb-8">Projects</h1>
-      <div className="flex flex-col md:flex-row gap-8">
+    <section id="projects" className="min-h-screen flex flex-col items-center justify-center bg-gray-100 pt-24 px-4">
+      <h1 className="text-3xl sm:text-4xl text-emerald-600 text-center mb-8">Projects</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
         {/* project 1 */}
-        <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm flex flex-col items-center">
+        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
           <img
             src="src/assets/turfproject.png"
             alt="Project Image"
@@ -22,15 +22,11 @@ const Projects = () => {
               use interface for players and turf owners.
             </p>
           </div>
-          <a
-            href="1"
-            className="inline-block bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition-colors mt-auto">
-            Learn More
-          </a>
+          <div className="mt-auto" />
         </div>
 
         {/* project 2 */}
-        <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm flex flex-col items-center">
+        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
           <img
             src="src/assets/labourers_connect.png"
             alt="Project Image"
@@ -44,16 +40,11 @@ const Projects = () => {
                 listings, and a rating/review system to ensure trust and transparency.
             </p>
           </div>
-          <a
-            href="2"
-            className="inline-block bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition-colors mt-auto"
-          >
-            Learn More
-          </a>
+          <div className="mt-auto" />
         </div>
 
         {/* project 3 */}
-        <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm flex flex-col items-center">
+        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center">
           <img
             src="src/assets/ev_app.png"
             alt="Project Image"
@@ -66,12 +57,7 @@ const Projects = () => {
                 route planning for efficient travel..
             </p>
           </div>
-          <a
-            href="3"
-            className="inline-block bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition-colors mt-auto"
-          >
-            Learn More
-          </a>
+          <div className="mt-auto" />
         </div>
       </div>
     </section>
