@@ -10,8 +10,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-emerald-50 px-6 py-16"
-    >
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-emerald-50 px-6 py-16">
       <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
         <img
           src="src/assets/image1.jpg"
@@ -21,9 +20,7 @@ const About = () => {
       </div>
 
       <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left px-4">
-        <h1 className="text-4xl font-extrabold text-emerald-700 mb-4 tracking-tight">
-          About Me
-        </h1>
+        <h1 className="text-4xl font-extrabold text-emerald-700 mb-4 tracking-tight">About Me</h1>
         <p className="text-lg text-emerald-700 leading-relaxed bg-white/80 rounded-lg p-2 shadow-md">
           I’m an MCA graduate with a strong interest in technology and software
           development. I enjoy learning new tools and building solutions that
@@ -36,25 +33,22 @@ const About = () => {
         <div className="links flex gap-4 mt-6">
           <button
             onClick={() => handleClick("skills")}
-            className="bg-transparent hover:bg-blue-500 text-emerald-700 font-semibold hover:text-white py-2 px-4 border border-emerald-700 hover:border-transparent rounded"
-          >
+            className="bg-transparent hover:bg-blue-500 text-emerald-700 font-semibold hover:text-white py-2 px-4 border border-emerald-700 hover:border-transparent rounded">
             Skills
           </button>
           <button
             onClick={() => handleClick("education")}
-            className="bg-transparent hover:bg-emerald-700 text-emerald-700 font-semibold hover:text-white py-2 px-4 border border-emerald-700 hover:border-transparent rounded"
-          >
+            className="bg-transparent hover:bg-emerald-700 text-emerald-700 font-semibold hover:text-white py-2 px-4 border border-emerald-700 hover:border-transparent rounded">
             Education
           </button>
           <button
             onClick={() => handleClick("experience")}
-            className="bg-transparent hover:bg-emerald-700 text-emerald-700 font-semibold hover:text-white py-2 px-4 border border-emerald-700 hover:border-transparent rounded"
-          >
+            className="bg-transparent hover:bg-emerald-700 text-emerald-700 font-semibold hover:text-white py-2 px-4 border border-emerald-700 hover:border-transparent rounded">
             Experience
           </button>
         </div>
 
-        {/* Conditional Sections */}
+        {/* Condition*/}
         <div className="mt-6 w-full">
           {activeSection === "skills" && (
             <div className="bg-white p-4 rounded-lg shadow-md text-emerald-700">
