@@ -105,7 +105,7 @@ const Contact = () => {
               <a
                 className="inline-flex items-center gap-2 font-semibold py-3 px-8 rounded-lg border border-emerald-700 hover:bg-emerald-500 hover:text-white focus:bg-emerald-500 focus:text-white active:bg-emerald-600 active:text-white transition-colors text-lg"
                 download
-                href="images/Aswin_pr_Resume.pdf"
+                href="src/assets/Aswin_pr_Resume.pdf"
               >
                 {/* Download Icon */}
                 <svg className="h-6 w-6 text-emerald-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
