@@ -1,4 +1,5 @@
 import React from 'react';
+import cv from "../assets/Aswin_pr_Resume.pdf"
 
 const Contact = () => {
   return (
@@ -26,9 +27,10 @@ const Contact = () => {
                       <polyline points="3 7 12 13 21 7" />
                     </svg>
                   </span>
-                  <span className="text-lg select-all break-all">
+                  <span className="text-lg select-all break-words">
                     aswinpr46@gmail.com
                   </span>
+
                 </div>
                  <div className="flex items-center gap-3 w-full mt-8">
                   <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-emerald-900/20">
@@ -101,19 +103,30 @@ const Contact = () => {
               </div>
             </div>
             {/* Download CV Button */}
+            
             <div className="mt-10 flex justify-center w-full">
-              <a
-                className="inline-flex items-center gap-2 font-semibold py-3 px-8 rounded-lg border border-emerald-700 hover:bg-emerald-500 hover:text-white focus:bg-emerald-500 focus:text-white active:bg-emerald-600 active:text-white transition-colors text-lg"
-                download
-                href="src/assets/Aswin_pr_Resume.pdf"
-              >
-                {/* Download Icon */}
-                <svg className="h-6 w-6 text-emerald-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 5v14M19 12l-7 7-7-7" />
-                </svg>
-                Download CV
-              </a>
-            </div>
+        <a
+          href={cv} // ✅ use imported pdf
+          download="Aswin_pr_Resume.pdf"
+          className="inline-flex items-center gap-2 font-semibold py-3 px-8 rounded-lg border border-emerald-700 hover:bg-emerald-500 hover:text-white focus:bg-emerald-500 focus:text-white active:bg-emerald-600 active:text-white transition-colors text-lg"
+        >
+          {/* Download Icon */}
+          <svg
+            className="h-6 w-6 text-emerald-400 group-hover:text-white transition-colors"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 5v14M19 12l-7 7-7-7" />
+          </svg>
+          Download CV
+        </a>
+      </div>
+
+
           </div>
           {/* Right Section (Form) */}
           <div className="flex-1 p-8 flex items-center bg-black">

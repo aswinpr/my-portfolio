@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import aboutimage from "../assets/image1.jpg";
 
 const About = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -13,7 +14,7 @@ const About = () => {
       className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-emerald-50 px-6 py-16">
       <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
         <img
-          src="src/assets/image1.jpg"
+          src={aboutimage}
           alt="nature-image"
           className="h-80 w-80 md:h-96 md:w-96 rounded-xl object-cover object-center shadow-xl "
         />
