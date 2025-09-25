@@ -1,11 +1,55 @@
-import React from 'react';
-import cv from "../assets/Aswin_pr_Resume.pdf"
+import React, { useState } from 'react';
 
-const Contact = () => {
+// The entire component is wrapped in a single App component for self-containment.
+const App = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xzzjzeyv', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        form.reset();
+      } else {
+        // Handle non-200 responses if needed
+        console.error('Form submission failed');
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      console.error('An error occurred during form submission:', error);
+      setIsSubmitting(false);
+    }
+  };
+
+  // If the form is submitted successfully, display a success message
+  if (isSubmitted) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-black text-emerald-400 p-4">
+        <div className="bg-black rounded-2xl border border-emerald-800/40 shadow-2xl p-8 max-w-lg w-full text-center">
+          <h2 className="text-3xl font-bold mb-4">Thank you!</h2>
+          <p className="text-xl">Your message has been sent successfully. I'll get back to you soon.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center bg-black py-12 pt-24 px-4 text-emerald-400"
+      className="min-h-screen flex flex-col items-center justify-center bg-black py-12 px-4 text-emerald-400"
     >
       <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">Contact me</h2>
       <div className="container mx-auto max-w-5xl w-full px-4">
@@ -16,35 +60,27 @@ const Contact = () => {
               {/* Contact Details */}
               <div className="space-y-4 mb-8 flex flex-col items-center w-full max-w-md">
                 <div className="email_phone">
-                    <div className="flex items-center gap-3 w-full">
-                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-emerald-900/20">
-                    <div className="div">
-                      
-                    </div>
-                    {/* Email Icon */}
-                    <svg className="h-7 w-7 text-emerald-400" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="3" y="5" width="18" height="14" rx="2" />
-                      <polyline points="3 7 12 13 21 7" />
-                    </svg>
-                  </span>
-                  <span className="text-lg select-all break-words">
-                    aswinpr46@gmail.com
-                  </span>
-
+                  <div className="flex items-center gap-3 w-full">
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-emerald-900/20">
+                      <div className="div"></div>
+                      {/* Email Icon */}
+                      <svg className="h-7 w-7 text-emerald-400" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <polyline points="3 7 12 13 21 7" />
+                      </svg>
+                    </span>
+                    <span className="text-lg select-all break-words">aswinpr46@gmail.com</span>
+                  </div>
+                  <div className="flex items-center gap-3 w-full mt-8">
+                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-emerald-900/20">
+                      {/* Phone Icon */}
+                      <svg className="h-7 w-7 text-emerald-400" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                      </svg>
+                    </span>
+                    <span className="text-lg select-all break-all">+91 9495855989</span>
+                  </div>
                 </div>
-                 <div className="flex items-center gap-3 w-full mt-8">
-                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-emerald-900/20">
-                    {/* Phone Icon */}
-                    <svg className="h-7 w-7 text-emerald-400" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
-                    </svg>
-                  </span>
-                  <span className="text-lg select-all break-all">
-                    +91 9495855989
-                  </span>
-                </div>
-                </div>
-                
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 mt-4">
@@ -103,34 +139,34 @@ const Contact = () => {
               </div>
             </div>
             {/* Download CV Button */}
-            
             <div className="mt-10 flex justify-center w-full">
-        <a
-          href={cv} // ✅ use imported pdf
-          download="Aswin_pr_Resume.pdf"
-          className="inline-flex items-center gap-2 font-semibold py-3 px-8 rounded-lg border border-emerald-700 hover:bg-emerald-500 hover:text-white focus:bg-emerald-500 focus:text-white active:bg-emerald-600 active:text-white transition-colors text-lg"
-        >
-          {/* Download Icon */}
-          <svg
-            className="h-6 w-6 text-emerald-400 group-hover:text-white transition-colors"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 5v14M19 12l-7 7-7-7" />
-          </svg>
-          Download CV
-        </a>
-      </div>
-
-
+              <a
+                href="#"
+                download="Aswin_pr_Resume.pdf"
+                className="inline-flex items-center gap-2 font-semibold py-3 px-8 rounded-lg border border-emerald-700 hover:bg-emerald-500 hover:text-white focus:bg-emerald-500 focus:text-white active:bg-emerald-600 active:text-white transition-colors text-lg"
+              >
+                {/* Download Icon */}
+                <svg
+                  className="h-6 w-6 text-emerald-400 group-hover:text-white transition-colors"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 5v14M19 12l-7 7-7-7" />
+                </svg>
+                Download CV
+              </a>
+            </div>
           </div>
           {/* Right Section (Form) */}
           <div className="flex-1 p-8 flex items-center bg-black">
-            <form className="w-full max-w-md mx-auto flex flex-col gap-6">
+            <form
+              className="w-full max-w-md mx-auto flex flex-col gap-6"
+              onSubmit={handleSubmit}
+            >
               <h2 className="text-2xl font-bold mb-2">Send a Message</h2>
               <input
                 type="text"
@@ -155,9 +191,10 @@ const Contact = () => {
               ></textarea>
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="font-bold py-3 px-6 rounded-lg border border-emerald-700 hover:bg-emerald-500 hover:text-black transition-colors shadow"
               >
-                Submit
+                {isSubmitting ? 'Submitting...' : 'Submit'}
               </button>
             </form>
           </div>
@@ -167,4 +204,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default App;
